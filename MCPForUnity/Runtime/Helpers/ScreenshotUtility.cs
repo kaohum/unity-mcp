@@ -98,18 +98,18 @@ namespace MCPForUnity.Runtime.Helpers
         {
 #if UNITY_2022_1_OR_NEWER
             // Check if Screen Capture module is available (can be disabled in Package Manager > Built-in)
-            if (IsScreenCaptureModuleAvailable)
-            {
-                ScreenshotCaptureResult result = PrepareCaptureResult(fileName, superSize, ensureUniqueFileName, isAsync: true);
-                ScreenCapture.CaptureScreenshot(result.AssetsRelativePath, result.SuperSize);
-                return result;
-            }
-            else
-            {
+            // if (IsScreenCaptureModuleAvailable)
+            // {
+                // ScreenshotCaptureResult result = PrepareCaptureResult(fileName, superSize, ensureUniqueFileName, isAsync: true);
+                // ScreenCapture.CaptureScreenshot(result.AssetsRelativePath, result.SuperSize);
+                // return result;
+            // }
+            //else
+            //{
                 // Module disabled - try camera fallback
-                Debug.LogWarning("[MCP for Unity] " + ScreenCaptureModuleNotAvailableError);
+                //Debug.LogWarning("[MCP for Unity] " + ScreenCaptureModuleNotAvailableError);
                 return CaptureWithCameraFallback(fileName, superSize, ensureUniqueFileName);
-            }
+            //}
 #else
             // Unity < 2022.1 - always use camera fallback
             return CaptureWithCameraFallback(fileName, superSize, ensureUniqueFileName);
